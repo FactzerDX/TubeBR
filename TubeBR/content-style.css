@@ -1,0 +1,66 @@
+:root {
+  /* --yt-spec-icon-disabled: #f44 !important;
+  --yt-spec-text-primary: #4f4 !important; */
+  /* --yt-spec-general-background-a: #000 !important;
+  --yt-spec-general-background-b: #000 !important;
+  --yt-spec-general-background-c: #000 !important;
+  --yt-spec-brand-background-solid: #000 !important;
+  --yt-spec-brand-background-primary: #000 !important;
+  --yt-spec-brand-background-secondary: #000 !important; */
+}
+
+/* html:not(.style-scope)[dark], :not(.style-scope)[dark] {
+  --yt-spec-general-background-a: #000 !important;
+  --yt-spec-general-background-b: #000 !important;
+  --yt-spec-general-background-c: #000 !important;
+  --yt-spec-brand-background-solid: #000 !important;
+  --yt-spec-brand-background-primary: #000 !important;
+  --yt-spec-brand-background-secondary: #000 !important;
+} */
+body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+#ryd-bar-container {
+  background:rgba(255, 0, 0, 0);
+  border-radius: 0px;
+}
+
+#ryd-bar {
+  background: rgba(255, 0, 0, 0);
+  border-radius: 0px;
+  transition: all 0.15s ease-in-out;
+}
+
+.ryd-tooltip {
+  display: block;
+  height: 0px;
+}
+
+.ryd-tooltip-old-design {
+  position: relative;
+  top: 9px;
+}
+
+.ryd-tooltip-new-design {
+  position: absolute;
+  bottom: -10px;
+}
+
+.ryd-tooltip-bar-container {
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  padding-top: 6px;
+  padding-bottom: 12px;
+  top: -6px;
+}
+
+/* required to make the ratio bar visible in the new design */
+ytd-menu-renderer.ytd-watch-metadata {
+  overflow-y: visible !important;
+}
+
+#top-level-buttons-computed {
+  position: relative !important;
+}

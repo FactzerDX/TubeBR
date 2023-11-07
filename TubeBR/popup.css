@@ -1,0 +1,692 @@
+:root {
+  --sb-main-font-family: "Source Sans Pro", sans-serif;
+  --sb-main-bg-color: #222;
+  --sb-main-fg-color: #fff;
+  --sb-grey-bg-color: #33333360;
+  --sb-grey-fg-color: #999;
+  --sb-red-bg-color: #cc1717;
+}
+
+/*
+ * Generic utilities
+ */
+.grey-text {
+  color: var(--sb-main-fg-color);
+}
+.white-text {
+  color: var(--sb-main-fg-color);
+}
+.sbHeader {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#sponsorBlockPopupBody .u-mZ {
+  margin: 0px !important;
+  position: revert;
+  padding-bottom: 10px;
+}
+
+#sponsorBlockPopupBody .hidden {
+  display: none !important;
+}
+
+/*
+ * <button> elements that have icons
+ */
+ #setUsernameButton,
+ #copyUserID,
+ #submitUsername {
+   color: var(--sb-main-fg-color);
+   background: transparent;
+   width: fit-content;
+   padding: 0;
+   border: none;
+ }
+
+/*
+ * Main containers
+ */
+#sponsorBlockPopupHTML {
+  color-scheme: dark;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+#sponsorBlockPopupBody {
+  margin: 0;
+  width: 374px;
+  max-width: 100%;
+  font-size: 14px;
+  font-family: var(--sb-main-font-family);
+  background-image: url(https://blog.jitter.video/content/images/2021/12/Cross-background.gif);
+  color: #fff;
+  color-scheme: dark;
+}
+
+#sponsorblockPopup {
+  text-align: center;
+}
+
+#sponsorblockPopup a,
+#sponsorblockPopup button {
+  cursor: pointer;
+}
+
+/*
+ * Disable transition on all elements until the extension has loaded
+ */
+.sb-preload * {
+  transition: none !important;
+}
+
+/*
+ * Alert indicating that Beta server is enabled
+ */
+#sbBetaServerWarning {
+  padding: 8px;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--sb-main-fg-color);
+  background-color: var(--sb-red-bg-color);
+  cursor: pointer;
+}
+
+/*
+ * Container when popup displayed in-page (content.ts)
+ */
+#sponsorBlockPopupContainer {
+  position: relative;
+  margin-bottom: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14);
+}
+
+#sponsorBlockPopupContainer iframe {
+  width: 100%;
+}
+
+/*
+ * Disable popup max height when displayed in-page (content.ts)
+ */
+#sponsorBlockPopupContainer #sponsorBlockPopupHTML {
+  max-height: none;
+}
+
+/*
+ * Disable fixed popup width when displayed in-page (content.ts)
+ */
+#sponsorBlockPopupBody.is-embedded {
+  width: auto;
+}
+
+/*
+ * Close popup button when displayed in-page (top-right corner)
+ */
+ .sbCloseButton {
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  top: 17px;
+  z-index: 40;
+  position: fixed;
+  right: 20px;
+  opacity: 0.5;
+}
+.sbCloseButton:hover {
+  opacity: 1;
+}
+
+/*
+ * Header logo
+ */
+ .sbPopupLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  padding: 5px;
+  font-size: 32px;
+  margin: -95px 60px 0px 80px;
+  position: fixed;
+  z-index: 20;
+}
+.sbPopupLogo img {
+  margin: 0px 6px 10px 6px;
+  box-shadow: 0px 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14);
+}
+.powerLogo img {
+  margin-left: -15px;
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.powerLogo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  font-size: 16px;
+  padding-bottom: 120px;
+}
+#refreshSegmentsButton {
+  display: block;
+  align-items: center;
+  padding: 5px;
+  display: none;
+}
+
+#issueReporterImportExport {
+  position: relative;
+}
+
+#refreshSegmentsButton, #issueReporterImportExport button {
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+}
+
+#issueReporterImportExport button {
+  padding: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+#issueReporterImportExport img {
+  width: 37px;
+  display: block;
+  border-radius: 30px;
+  background: #00000078;
+  padding: 0px;
+  margin-top: 30px;
+}
+
+#importSegmentsText {
+  margin-top: 7px;
+}
+
+#importSegmentsMenu button {
+  padding: 10px;
+}
+
+/*
+ * <details> wrapper around each segment
+ */
+.votingButtons {
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 8px;
+  margin: 4px 16px;
+}
+.votingButtons[open] {
+  padding-bottom: 5px;
+}
+.votingButtons:hover {
+  background-color: var(--sb-grey-bg-color);
+  border-radius: 30px;
+}
+
+/*
+ * Individual segments summaries (clickable <summary>)
+ */
+.segmentSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  font-weight: bold;
+  list-style: none;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.segmentSummary > div {
+  text-align: left;
+  padding: 10px;
+}
+
+.segmentSummary::-webkit-details-marker {
+  display: none !important;
+}
+
+.segmentActive {
+  color: #bdfffb;
+}
+
+.segmentPassed {
+  color: #ffffff;
+}
+
+/*
+ * Category dot in segment
+ */
+.sponsorTimesCategoryColorCircle {
+  margin-right: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+/*
+ * Category name in segment
+ */
+.summaryLabel {
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.sbVoteButtonsContainer {
+  text-align: center;
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  padding: 10px;
+  border-radius: 20px !important;
+  margin: 0px 50px 0px 50px;
+}
+
+/*
+ * Buttons that appear under a segment on click
+ */
+.voteButton {
+  height: 20px;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.voteButton:hover {
+  opacity: 0.8;
+}
+
+/*
+ * "Voted!" text that appears after voting on a segment
+ */
+.sponsorTimesThanksForVotingText {
+  font-size: large;
+}
+
+/*
+ * Main controls menu
+ */
+.sbControlsMenu {
+justify-content: center;
+overflow: hidden;
+bottom: 20px;
+left: 70px;
+display: inline-flex;
+position: fixed;
+z-index: 200;
+padding: 5px;
+background: #0000007d;
+border-radius: 30px;
+backdrop-filter: saturate(150)blur(10px);
+-webkit-backdrop-filter: saturate(150)blur(10px);
+box-shadow: 0px 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14);
+}
+.sbControlsMenu-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 0px;
+  height: 0px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  flex: 1;
+  border-radius: 30px;
+  margin: 30px 40px 30px 40px;
+  transition: 0.5s ease !important;
+}
+.sbControlsMenu-itemIcon {
+  margin-bottom: 0px;
+  padding: 4px;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+}
+span#disableSkipping {
+  margin-bottom: -10px;
+}
+
+/*
+ * Whitelist add/remove icon
+ */
+.SBWhitelistIcon > path {
+  fill: var(--sb-main-fg-color);
+}
+.SBWhitelistIcon.rotated {
+  transform: rotate(45deg);
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+ * "Skipping is enabled" toggle
+ */
+.toggleSwitchContainer-switch {
+  display: flex;
+  margin-bottom: 6px;
+}
+.switchBg {
+  width: 50px;
+  height: 23px;
+  display: block;
+  border-radius: 18.5px;
+}
+.switchBg.shadow {
+  box-shadow: 0.75px 0.75px 10px 0px rgba(50, 50, 50, 0.5);
+  opacity: 1;
+}
+.switchBg.white {
+  opacity: 1;
+  position: absolute;
+  background-color: #ccc;
+}
+.switchBg.green {
+  opacity: 0;
+  position: absolute;
+  background-color: #00a205;
+  transition: 0.5s ease !important;
+}
+.switchDot {
+  width: 15px;
+  margin: 4px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  transition: transform 0.2s ease-out;
+  background-color: var(--sb-main-fg-color);
+  box-shadow: 0.75px 0.75px 3.8px 0px rgba(50, 50, 50, 0.45);
+}
+#toggleSwitch:checked ~ .switchDot {
+  transform: translateX(27px);
+}
+#toggleSwitch:checked ~ .switchBg.green {
+  opacity: 1;
+  transition: 0.5s ease !important;
+}
+#toggleSwitch:checked ~ .switchBg.white {
+  transition: opacity 0.2s step-end;
+  opacity: 0;
+}
+
+/*
+ * Notice that appears when whitelisting a channel, that recommends
+ * enabling the "Force Channel Check Before Skipping" option
+ */
+#whitelistForceCheck {
+  background-color: #fff3cd;
+  padding: 10px 15px;
+  display: block;
+  color: #664d03;
+}
+#whitelistForceCheck:hover {
+  background-color: #f2e4b7;
+}
+
+/*
+ * Submit box
+ */
+ #mainControls {
+  margin: 20px;
+  padding: 1px 40px;
+  text-align: center;
+  border-radius: 30px;
+  border: 5px solid white;
+  backdrop-filter: saturate(100%) blur(5px);
+  -webkit-backdrop-filter: saturate(100%) blur(5px);
+}
+.sponsorStartHint {
+  display: block;
+  text-align: left;
+  padding-top: 3px;
+}
+
+/*
+ * Generic red buttons used for "Start Segment Now", "Submit Times" etc.
+ */
+.sbMediumButton {
+  border: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 28px;
+  display: inline-block;
+  -moz-border-radius: 28px;
+  -webkit-border-radius: 28px;
+  color: var(--sb-main-fg-color);
+  transition: 0.01s background-color;
+  font-family: var(--sb-main-font-family);
+  background-color: var(--sb-red-bg-color);
+}
+.sbMediumButton:hover,
+.sbMediumButton:focus {
+  background-color: #ec1c1c;
+  outline: none;
+}
+.sbMediumButton:active {
+  position: relative;
+  top: 1px;
+}
+/*
+ * "Submit Times" button
+ */
+#submitTimes {
+  margin-top: 12px;
+}
+
+/*
+ * Your Work box
+ */
+ .sbYourWorkBox {
+  margin: 16px;
+  margin-bottom: 30px;
+  border-radius: 30px;
+  padding: 15px;
+  backdrop-filter: saturate(150%) blur(5px);
+  -webkit-backdrop-filter: saturate(150%) blur(5px);
+}
+.sbYourWorkCols {
+  display: contents;
+}
+
+.sbStatsSentence {
+  padding: 6px 14px;
+}
+
+.sbExtraInfo {
+  display: inline-block;
+}
+
+/*
+ * Increase font size of username input and display
+ */
+#usernameValue,
+#usernameInput {
+  font-size: 16px;
+  flex: 1 0;
+}
+#sponsorTimesContributionsDisplay {
+  font-size: 16px;
+}
+ /*
+ * Improve alignment of username and submissions
+ */
+#usernameElement > p,
+#sponsorTimesContributionsContainer {
+  text-align: center;
+}
+
+/*
+ * Username
+ */
+ #usernameElement {
+  padding: 15px 2px 15px 0px;
+  min-width: 50%;
+  width: 100%;
+  background: #000000;
+  border-radius: 20px;
+  margin: 5px 0px 8px -1px;
+}
+#setUsernameContainer {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-left: 60px;
+}
+#setUsernameContainer > button {
+  display: flex;
+}
+#setUsernameButton {
+  margin-right: 5px;
+  flex: 0 1;
+}
+#submitUsername {
+  padding-left: 16px;
+}
+#copyUserID {
+  width: 100%;
+  flex: 0 1;
+}
+/*
+ * Truncate username display
+ */
+#usernameValue {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 8px 0 0;
+  max-width: 165px;
+}
+/*
+ * Set username form container with "expanded" state
+ */
+#setUsername.SBExpanded {
+  text-align: left;
+}
+/*
+ * Set username input
+ */
+#usernameInput {
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: calc(100% - 68px);
+  text-overflow: ellipsis;
+  color: var(--sb-main-fg-color);
+  background-color: var(--sb-grey-bg-color);
+}
+
+/*
+ * Submissions
+*/
+#sponsorTimesContributionsContainer {
+  padding: 10px 20px;
+  background: #1c1c1c;
+  border-radius: 20px;
+}
+
+/*
+ * Footer
+ */
+#sbFooter {
+  padding: 8px 0;
+  display: none;
+}
+#sbFooter a {
+  transition: background 0.3s ease !important;
+  color: var(--sb-main-fg-color);
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #333;
+  padding: 4px 8px;
+  font-weight: 500;
+  margin: 2px 1px;
+}
+#sbFooter a:hover {
+  background-color: #444;
+}
+
+#sponsorTimesDonateContainer a {
+  color: var(--sb-main-fg-color);
+  text-decoration: none;
+}
+
+/*
+ * "Show Notice Again" button
+ */
+#showNoticeAgain {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: var(--sb-main-fg-color);
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+#sponsorBlockPopupBody .hidden {
+  display: none !important;
+}
+
+#issueReporterTabs {
+  margin: 5px;
+}
+
+#issueReporterTabs > span {
+  padding: 6px 57px;
+  margin: 0 3px;
+  cursor: pointer;
+  background-color: #44484882;
+  border-radius: 10px;
+}
+
+#issueReporterTabs > span > span {
+  position: relative;
+  padding: 0.2em 0;
+}
+
+#issueReporterTabs > span > span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: rgb(145, 0, 0);
+  transition: transform 300ms;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+#issueReporterTabs > span.sbSelected > span::after {
+  transform: scaleX(0.8);
+}
+div#videoInfo {
+  backdrop-filter: saturate(150%)blur(10px);
+  -webkit-backdrop-filter: saturate(150%)blur(10px);
+  border-radius: 30px;
+  margin: 20px;
+  padding: 30px 0px 18px 0px;
+  box-shadow: 0px 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14), 0 8px 30px 2px rgba(0,0,0,0.14);
+  margin: 120px 10px 10px 10px;
+}
+header.sbPopupLogo {
+  background: #00000085;
+  backdrop-filter: saturate(150%)blur(10px);
+  -webkit-backdrop-filter: saturate(150%)blur(10px);
+  padding: 30px 0px 5px 0px;
+  margin-left: 0px;
+  display: flex;
+  margin-top: -130px;
+  width: 100%;
+  margin-right: 0px;
+}
