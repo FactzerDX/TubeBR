@@ -47,7 +47,7 @@ Enable developer mode Sarari
     
 ## Support
 
-dezadx:https://github.com/dezadx
+Git:https://github.com/FactzerDX
 
 Facebook:https://www.facebook.com/factzerdx/
 </p>
